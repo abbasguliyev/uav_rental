@@ -1,0 +1,48 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block body %}
+
+<a class="btn btn-primary px-2 mt-5" href="{% url 'uav_add' %}">Add New UAV</a>
+<table class="table mt-2">
+    <caption>List of uavs</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="p-2">#</th>
+        <th scope="col" class="p-2">Name</th>
+        <th scope="col" class="p-2">Brand</th>
+        <th scope="col" class="p-2">Category</th>
+        <th scope="col" class="p-2"></th>
+        <th scope="col" class="p-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for uav in uavs %}
+      <tr>
+        <th class="p-2" scope="row">{{ uav.pk }}</th>
+        <td class="p-2">{{ uav.name }}</td>
+        <td class="p-2">{{ uav.brand.brand_name }}</td>
+        <td class="p-2">{{ uav.category.category_name }}</td>
+        <td class="p-2"><a href="{% url 'uav_update' uav.slug %}" class="btn btn-primary px-2">Edit</a></td>
+        <td class="p-2"><a href="{% url 'uav_delete' uav.slug %}" class="btn btn-danger px-2">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example" id="pagination-links">
+    {% if page_obj.has_previous %}
+        <a href="{% url request.resolver_match.url_name %}?page={{ page_obj.previous_page_number }}{% for key,value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"><span aria-hidden="true">&laquo;</span></a>
+    {% endif %}
+
+    {% for i in page_obj.paginator.page_range %}
+        {% if page_obj.number == i %}
+            <a href="#" class="active">{{ i }}</a>
+        {% else %}
+            <a href="{% url request.resolver_match.url_name %}?page={{ i }}{% for key,value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="{% url request.resolver_match.url_name %}?page={{ page_obj.next_page_number }}{% for key,value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"><span aria-hidden="true">&raquo;</span></a>
+    {% endif %}
+</nav>
+{% endblock body %}

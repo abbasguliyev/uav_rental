@@ -1,0 +1,30 @@
+* {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar {
+    background-color: #394052;
+    color: #fff;
+}
+ 
+.auth-button {
+    color: #fff;
+}
+.auth-button:hover {
+    color: #FDD835;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.category-button {
+    color: #fff !important;
+}

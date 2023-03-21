@@ -1,0 +1,21 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+<ul class="nav justify-content-center">
+    <li class="nav-item mr-2">
+      <a class="nav-link dashboard-link {% if '/dashboard/uavs/' == request.path %} active-dashboard-link {% endif %}" href="{% url 'uav_dashboard' %}">Uavs</a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link dashboard-link {% if '/dashboard/category' == request.path %} active-dashboard-link {% endif %}" href="{% url 'category' %}">Category</a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link dashboard-link {% if '/dashboard/brand' == request.path %} active-dashboard-link {% endif %}" href="{% url 'brand' %}">Brands</a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link dashboard-link {% if '/order/all-order/' == request.path %} active-dashboard-link {% endif %}" href="{% url 'order' %}">Order</a>
+    </li>
+  </ul>
+  <div class="container mx-auto">
+  {% block body %}
+  
+  {% endblock body %}
+</div>
+{% endblock content %}

@@ -1,0 +1,7 @@
+DEBUG=True
+SECRET_KEY=django-insecure-czrpkzwjcf8pi8b-x)j288)m4=c33huz8&=6*_qi3d*@^@95*-
+DB_NAME=uav_rental
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=localhost
+DB_PORT=5432

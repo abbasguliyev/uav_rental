@@ -1,0 +1,17 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block body %}
+<form
+    method="post"
+    class="form-horizontal h-100 d-flex align-items-center justify-content-center"
+    enctype="multipart/form-data"
+>
+    {% csrf_token %}
+    <div class="w-50">
+        <div>
+            Are you sure to delete {{ uav.name }}?
+        </div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>
+</form>
+{% endblock body %}

@@ -1,0 +1,30 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+
+<div class="d-flex flex-column bd-highlight text-center">
+    <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-ride="carousel"
+    >
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img
+                    src="{{ uav.image.url }}"
+                    class="d-block w-100 uav-detail-img"
+                />
+            </div>
+        </div>
+    </div>
+
+    <ul class="list-group list-group-flush text-center mt-3">
+        <li class="list-group-item">Name: {{ uav.name }}</li>
+        <li class="list-group-item">Description: {{ uav.description }}</li>
+        <li class="list-group-item">Category: {{ uav.category.category_name }}</li>
+        <li class="list-group-item">Brand: {{ uav.brand.brand_name }}</li>
+        <li class="list-group-item">Weight: {{ uav.weight }} kg</li>
+        <li class="list-group-item">Endurance: {{ uav.endurance }} hrs</li>
+        <li class="list-group-item">Flight Range: {{ uav.flight_range }} km</li>
+        <li class="list-group-item">Max Speed: {{ uav.max_speed }} km/h</li>
+    </ul>
+</div>
+{% endblock %}
