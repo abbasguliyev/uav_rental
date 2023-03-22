@@ -19,7 +19,7 @@ class OrderListView(LoginRequiredMixin, ListView):
     template_name = "order.html"
     context_object_name="orders"
 
-class OrderAddView(LoginRequiredMixin, View):
+class OrderAddView(View):
     """
     This view is for the add new order. 
     When user click the order button inside uav card in home page this view start working
@@ -29,6 +29,8 @@ class OrderAddView(LoginRequiredMixin, View):
 
     def post(self, request):
         form = self.form_class(request.POST)
+        if request.user.is_authenticated == False:
+            return redirect(reverse_lazy('login'))
         if form.is_valid():
             form.save()
             messages.success(request, "Order completed successfully")

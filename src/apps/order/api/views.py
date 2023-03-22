@@ -1,5 +1,5 @@
 from rest_framework.views import Response
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, permissions
 from apps.order.selectors import order_list
 from apps.order.api.serializers import OrderSerializer
 from apps.order.filters import OrderFilter
@@ -9,6 +9,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     queryset = order_list()
     serializer_class = OrderSerializer
     filterset_class = OrderFilter
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
