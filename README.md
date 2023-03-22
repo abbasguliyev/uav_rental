@@ -9,7 +9,7 @@ UAV Rental Project with Django
 - rest-api docs: http://megaline.gq:9515/docs/ ve http://megaline.gq:9515/redoc/
 
 ## Demo Screenshots
-![Screenshot](assets/Screenshot from 2023-03-23 00-42-40.png)
+![Model](assets/Screenshot from 2023-03-23 00-42-40.png)
 
 ## Technologies and Libraries
 1. Django
