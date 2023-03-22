@@ -19,16 +19,16 @@ UAV Rental Project with Django
 8. Docker and etc.
 
 ## Install
-git clone https://github.com/abbasguliyev/uav_rental.git
+- git clone https://github.com/abbasguliyev/uav_rental.git
 ## Configuration
-create .env file inside src and uav_rental(for docker-compose) folders, copy and paste the contents of the uav_rental/env file.
+- create .env file inside src and uav_rental(for docker-compose) folders, copy and paste the contents of the uav_rental/env file.
 ## Run with Docker
-docker-compose build \
-docker-compose run --rm web python3 manage.py createsuperuser
-docker-compose up
+- docker-compose build
+- docker-compose run --rm web python3 manage.py createsuperuser
+- docker-compose up
 
 ## Run without Docker
-cd kodaze \
-python manage.py migrate \
-python manage.py createsuperuser \
-python manage.py runserver
+- cd kodaze
+- python manage.py migrate
+- python manage.py createsuperuser
+- python manage.py runserver
