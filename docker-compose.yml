@@ -11,7 +11,7 @@ services:
     networks:
       - uav-rental-network
     env_file:
-      - .env
+      - ./src/.env
     environment:
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
@@ -32,7 +32,7 @@ services:
     ports:
       - "9515:9515"
     env_file:
-      - .env
+      - ./src/.env
     depends_on:
       - db
 
