@@ -7,7 +7,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:
-      - "55036:5432"
+      - "54030:5432"
     networks:
       - uav-rental-network
     env_file:
