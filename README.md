@@ -35,7 +35,7 @@ UAV Rental Project with Django
 
 ## Demo Screenshots
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc1.png?raw=true "Optional Title")
-![<img alt="alt_text" width="10px" />](/src/media/assets/sc2.png?raw=true "Optional Title")
+![<img alt="alt_text" width="10px" />](/src/media/assets/sc19.png?raw=true "Optional Title")
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc3.png?raw=true "Optional Title")
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc4.png?raw=true "Optional Title")
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc5.png?raw=true "Optional Title")
@@ -49,4 +49,6 @@ UAV Rental Project with Django
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc13.png?raw=true "Optional Title")
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc14.png?raw=true "Optional Title")
 ![<img alt="alt_text" width="10px" />](/src/media/assets/sc15.png?raw=true "Optional Title")
-![<img alt="alt_text" width="10px" />](/src/media/assets/sc16.png?raw=true "Optional Title")
+![<img alt="alt_text" width="10px" />](/src/media/assets/sc17.png?raw=true "Optional Title")
+![<img alt="alt_text" width="10px" />](/src/media/assets/sc18.png?raw=true "Optional Title")
+![<img alt="alt_text" width="10px" />](/src/media/assets/sc19.png?raw=true "Optional Title")
