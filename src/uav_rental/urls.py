@@ -45,11 +45,12 @@ urlpatterns = [
     path('account/', include('apps.account.urls')),
     path('order/', include('apps.order.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 
 handler404 = 'apps.uav.views.custom_page_not_found_view'
 handler500 = 'apps.uav.views.custom_error_view'
 handler403 = 'apps.uav.views.custom_permission_denied_view'
 handler400 = 'apps.uav.views.custom_bad_request_view'
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
