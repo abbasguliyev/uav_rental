@@ -1,7 +1,13 @@
 {% extends 'dashboard.html' %}
 {% load static %}
 {% block body %}
-
+{% if messages %}
+<ul class="messages text-center bg-success mt-2">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 <a class="btn btn-primary px-2 mt-5" href="{% url 'brand_add' %}">Add New Brand</a>
 <table class="table mt-2">
     <caption>List of Brand</caption>

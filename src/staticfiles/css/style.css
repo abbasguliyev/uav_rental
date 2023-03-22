@@ -46,8 +46,13 @@ a {
     width: 50px !important;
 }
 
+
+.nav-a {
+    color: #fff !important;
+}
+
 .active{
-    color: #FDD835;
+    color: #FDD835 !important;
 }
 
 #main{
@@ -100,3 +105,17 @@ a {
     display: inline-block;
     border-radius: 5px;
 }
+
+@keyframes blinker {
+    from {opacity: 1.0;}
+    to {opacity: 0.0;}
+  }
+  
+.blink {
+    text-decoration: blink;
+    animation-name: blinker;
+    animation-duration: 0.6s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
+    animation-direction: alternate;
+  }

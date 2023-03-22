@@ -11,12 +11,19 @@ from apps.order.forms import OrderForm
 
 
 class OrderListView(LoginRequiredMixin, ListView):
+    """
+    This view is for the list all orders in dashboar.
+    """
     model = Order
     paginate_by = 10
     template_name = "order.html"
     context_object_name="orders"
 
 class OrderAddView(LoginRequiredMixin, View):
+    """
+    This view is for the add new order. 
+    When user click the order button inside uav card in home page this view start working
+    """
     form_class = OrderForm
     template_name = 'home.html'
 
@@ -31,6 +38,9 @@ class OrderAddView(LoginRequiredMixin, View):
 
 
 class OrderDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    This view is for the delete order.
+    """
     model = Order
     success_url = reverse_lazy('order')
     template_name = 'order_delete.html'

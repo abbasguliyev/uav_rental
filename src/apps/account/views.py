@@ -1,5 +1,10 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.db.models import Q
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+from django.http import HttpResponse
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -10,8 +15,20 @@ from django.contrib.auth import login, authenticate, logout
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+class UserListView(ListView):
+    """
+    This view is for the list all user in dashboard/user page
+    """
+    model = get_user_model()
+    paginate_by = 4
+    template_name = "user.html"
+    context_object_name = "users"
+
 # Sign Up View
 class RegisterView(CreateView):
+    """
+    This view is for the register new user
+    """
     form_class = RegisterForm
     success_url = reverse_lazy('login')
     template_name = 'register.html'
@@ -24,6 +41,9 @@ class RegisterView(CreateView):
         
 
 class LoginView(View):
+    """
+    This view is for the login process
+    """
     form_class = LoginForm
     template_name = 'login.html'
     redirect_authenticated_user = True
@@ -53,11 +73,17 @@ class LoginView(View):
         return render(request, self.template_name, context={'form': form})
 
 class LogoutView(LoginRequiredMixin, View):
+    """
+    This view is for the logout process
+    """
     def get(self, request):
         logout(request)
         return redirect(reverse_lazy('login'))
 
 class ProfileView(LoginRequiredMixin, UpdateView):
+    """
+    This view is for the profile. When user click the profile button inside the navbar, this view start working
+    """
     model = get_user_model()
     form_class = UpdateUserForm
     success_url = reverse_lazy('home')

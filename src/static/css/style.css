@@ -46,8 +46,13 @@ a {
     width: 50px !important;
 }
 
+
+.nav-a {
+    color: #fff !important;
+}
+
 .active{
-    color: #FDD835;
+    color: #FDD835 !important;
 }
 
 #main{
@@ -99,4 +104,8 @@ a {
     padding-right: 5px !important;
     display: inline-block;
     border-radius: 5px;
+}
+
+.search:focus {
+    background-color: #E8E8E8;
 }

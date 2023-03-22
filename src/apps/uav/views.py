@@ -16,6 +16,9 @@ from uav_rental.utils import generate_random_slug
 
 
 class UavListView(ListView):
+    """
+    This view is for the list all uav inside home page
+    """
     model = Uav
     paginate_by = 4
     template_name = "home.html"
@@ -43,20 +46,32 @@ class UavListView(ListView):
         return context
     
 class UavDetailView(DetailView):
+    """
+    This view is for the uav update from dashboard
+    """
     model = Uav
     template_name = "uav_detail.html"
     context_object_name = "uav"
 
 class DashboardView(TemplateView):
+    """
+    This view is for the dashboard page
+    """
     template_name = "uavs.html"
 
 class UavDashboardListView(ListView):
+    """
+    This view is for the list uav inside dashboard
+    """
     model = Uav
     paginate_by = 10
     template_name = "uavs.html"
     context_object_name = "uavs"
 
 class UavAddView(LoginRequiredMixin, CreateView):
+    """
+    This view is for the add new uav inside dashboard
+    """
     form_class = UavForm
     success_url = reverse_lazy('uav_dashboard')
     template_name = 'uav_create.html'
@@ -71,9 +86,19 @@ class UavAddView(LoginRequiredMixin, CreateView):
         slug = generate_random_slug(name=name, query_list=uav_list())
         uav.slug = slug
         uav.save()
+        messages.success(self.request, "Uav added successfully")
+
         return super().form_valid(form)
     
+    def form_invalid(self, form):
+        messages.error(self.request, "An error occurred while adding a uav")
+        return super().form_invalid(form)
+
+    
 class UavUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    This view is for the uav update from dashboard
+    """
     model = Uav
     form_class = UavForm
     success_url = reverse_lazy('uav_dashboard')
@@ -86,9 +111,18 @@ class UavUpdateView(LoginRequiredMixin, UpdateView):
         slug = generate_random_slug(name=name, query_list=uav_list())
         uav.slug = slug
         uav.save()
+        messages.success(self.request, "Uav updated successfully")
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        messages.error(self.request, "An error occurred while updated a uav")
+        return super().form_invalid(form)
+    
+
 class UavDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    This view is for the uav delete from dashboard
+    """
     model = Uav
     success_url = reverse_lazy('uav_dashboard')
     template_name = 'uav_delete.html'
@@ -99,12 +133,18 @@ class UavDeleteView(LoginRequiredMixin, DeleteView):
         return super(UavDeleteView,self).form_valid(form)
     
 class CategoryListView(LoginRequiredMixin, ListView):
+    """
+    This view is for the list all categories inside dashboard
+    """
     model = Category
     paginate_by = 10
     template_name = "category.html"
     context_object_name="categories"
 
 class CategoryAddView(LoginRequiredMixin, CreateView):
+    """
+    This view is for the add new category from dashboard
+    """
     form_class = CategoryForm
     success_url = reverse_lazy('category')
     template_name = 'category_create.html'
@@ -119,10 +159,18 @@ class CategoryAddView(LoginRequiredMixin, CreateView):
         slug = generate_random_slug(name=name, query_list=category_list())
         category.slug = slug
         category.save()
+        messages.success(self.request, "Category added successfully")
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        messages.error(self.request, "An error occurred while created a category")
+        return super().form_invalid(form)
+    
 
 class CategoryUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    This view is for the category update from dashboard
+    """
     model = Category
     form_class = CategoryForm
     success_url = reverse_lazy('category')
@@ -135,10 +183,18 @@ class CategoryUpdateView(LoginRequiredMixin, UpdateView):
         slug = generate_random_slug(name=name, query_list=category_list())
         category.slug = slug
         category.save()
+        messages.success(self.request, "Category updated successfully")
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        messages.error(self.request, "An error occurred while updated a category")
+        return super().form_invalid(form)
+    
 
 class CategoryDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    This view is for the category delete from dashboard
+    """
     model = Category
     success_url = reverse_lazy('category')
     template_name = 'category_delete.html'
@@ -150,12 +206,18 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     
 
 class BrandListView(LoginRequiredMixin, ListView):
+    """
+    This view is for the list all brands inside dashboard
+    """
     model = Brand
     paginate_by = 10
     template_name = "brand.html"
     context_object_name="brands"
 
 class BrandAddView(LoginRequiredMixin, CreateView):
+    """
+    This view is for the add new brand from dashboard
+    """
     form_class = BrandForm
     success_url = reverse_lazy('brand')
     template_name = 'brand_create.html'
@@ -170,10 +232,18 @@ class BrandAddView(LoginRequiredMixin, CreateView):
         slug = generate_random_slug(name=name, query_list=brand_list())
         brand.slug = slug
         brand.save()
+        messages.success(self.request, "Brand added successfully")
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        messages.error(self.request, "An error occurred while added a brand")
+        return super().form_invalid(form)
+    
 
 class BrandUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    This view is for the brand update from dashboard
+    """
     model = Brand
     form_class = BrandForm
     success_url = reverse_lazy('brand')
@@ -186,10 +256,17 @@ class BrandUpdateView(LoginRequiredMixin, UpdateView):
         slug = generate_random_slug(name=name, query_list=brand_list())
         brand.slug = slug
         brand.save()
+        messages.success(self.request, "Brand updated successfully")
         return super().form_valid(form)
-
-
+    
+    def form_invalid(self, form):
+        messages.error(self.request, "An error occurred while updated a brand")
+        return super().form_invalid(form)
+    
 class BrandDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    This view is for the brand delete from dashboard
+    """
     model = Brand
     success_url = reverse_lazy('brand')
     template_name = 'brand_delete.html'

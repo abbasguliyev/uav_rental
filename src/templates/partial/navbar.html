@@ -4,16 +4,16 @@
     <div class="col-sm-6">
         <div class="row justify-content-end px-4">
             <ul class="navbar-nav ml-auto d-flex flex-row">
-                <li class="nav-item ml-2 {% if '/' == request.path %} active {% endif %}"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item ml-2"><a class="nav-link nav-a {% if '/' == request.path %} active {% endif %}" href="{% url 'home' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_staff %}
-                <li class="nav-item ml-2 {% if 'dashboard' == request.path %} active {% endif %}"><a class="nav-link" href="{% url 'uav_dashboard' %}">Dashboard</a></li>
+                <li class="nav-item ml-2"><a class="nav-link nav-a {% if 'dashboard' in request.path %} active {% endif %}" href="{% url 'uav_dashboard' %}">Dashboard</a></li>
                 {% endif %}
-                <li class="nav-item ml-2 {% if 'profile' == request.path %} active {% endif %}"><a class="nav-link" href="{% url 'profile' request.user.pk %}">Profile</a></li>
-                <li class="nav-item ml-2 {% if 'logout' == request.path %} active {% endif %}"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                <li class="nav-item ml-2"><a class="nav-link nav-a {% if 'account/dashboard/user/' in request.path %} {% elif 'account/' in request.path %} active {% endif %}" href="{% url 'profile' request.user.pk %}">Profile</a></li>
+                <li class="nav-item ml-2"><a class="nav-link nav-a {% if 'logout' in request.path %} active {% endif %}" href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
-                <li class="nav-item ml-2 {% if 'login' == request.path %} active {% endif %}"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                <li class="nav-item ml-2{% if 'register' == request.path %} active {% endif %}"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                <li class="nav-item ml-2"><a class="nav-link nav-a {% if 'login' in request.path %} active {% endif %}" href="{% url 'login' %}">Login</a></li>
+                <li class="nav-item ml-2"><a class="nav-link nav-a {% if 'register' in request.path %} active {% endif %}" href="{% url 'register' %}">Register</a></li>
                 {% endif %}
             </ul>
         </div>
