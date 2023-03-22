@@ -16,7 +16,12 @@ UAV Rental Project with Django
 5. djangorestframework-simplejwt
 6. drf-yasg
 7. Postgres
-8. Docker and etc.
+8. Html
+9. Css
+10. Bootstap
+11. Javascript
+12. JQuery
+13. Docker and etc.
 
 ## Install
 - git clone https://github.com/abbasguliyev/uav_rental.git
