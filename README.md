@@ -33,7 +33,7 @@ UAV Rental Project with Django
 - docker-compose up
 
 ## Run without Docker
-- cd kodaze
+- cd src
 - python manage.py migrate
 - python manage.py createsuperuser
 - python manage.py runserver
