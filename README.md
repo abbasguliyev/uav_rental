@@ -1,13 +1,6 @@
 # uav_rental
 UAV Rental Project with Django
 
-## Project Demo
-- Linux Server
-- project demo : http://megaline.gq:9515
-- Demo User Username: admin@example.com
-- Demo User Password: admin123
-- rest-api docs: http://megaline.gq:9515/docs/ ve http://megaline.gq:9515/redoc/
-
 ## Technologies and Libraries
 1. Django
 2. django-environ
