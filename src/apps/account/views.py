@@ -13,7 +13,6 @@ from django.contrib.auth import get_user_model
 from apps.account.forms import RegisterForm, LoginForm, UpdateUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.views.generic import View
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 class UserListView(ListView):
     """
